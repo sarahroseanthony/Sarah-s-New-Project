@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "cofabric.memory.scaffold.v1",
+  "fileTree": [],
+  "libraryExports": [],
+  "existingRoutes": [],
+  "databaseState": {
+    "migrationsExist": false,
+    "tables": []
+  },
+  "intentionallyEmpty": []
+}

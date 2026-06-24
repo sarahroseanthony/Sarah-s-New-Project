@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "cofabric.memory.project.v2",
+  "name": "Sarah's New Project",
+  "oneLineDescription": "",
+  "whatItIs": "This project has no defined requirements. The specification contains only empty templates and placeholder fields, and cannot be implemented until a project description, core features, user model, and tech stack are provided.",
+  "stack": [],
+  "externalIntegrations": [],
+  "coreUserFlows": [],
+  "outOfScope": [],
+  "dataModel": [],
+  "crossCuttingPrinciples": [],
+  "specSummary": "This project is currently blocked and contains no implementable requirements. The specification is an empty template awaiting input from the project owner. No application purpose has been defined, no features have been listed, no user model has been specified, and no technology choices have been made. The specification explicitly states that task decomposition cannot begin until the following are provided: a two-to-three sentence project description explaining what the application does and who uses it; a list of three to five core user-facing features; a defined user model (public, personal accounts, role-based, or multi-tenant); and technology stack choices or constraints. Until these inputs are supplied, no implementation work can proceed. The document serves solely as a prompt to the project owner to provide the necessary definition before development can begin."
+}
