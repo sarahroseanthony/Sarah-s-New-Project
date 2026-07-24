@@ -1,11 +1,100 @@
 {
   "schemaVersion": "cofabric.memory.scaffold.v1",
-  "fileTree": [],
+  "fileTree": [
+    {
+      "path": "package.json",
+      "purpose": "Node.js project manifest with Next.js 14, React 18, and Tailwind CSS dependencies",
+      "isEmpty": false
+    },
+    {
+      "path": "tsconfig.json",
+      "purpose": "TypeScript compiler configuration with path alias @/* pointing to src/*",
+      "isEmpty": false
+    },
+    {
+      "path": "next.config.js",
+      "purpose": "Next.js framework configuration file",
+      "isEmpty": false
+    },
+    {
+      "path": "postcss.config.js",
+      "purpose": "PostCSS configuration for Tailwind CSS processing",
+      "isEmpty": false
+    },
+    {
+      "path": "tailwind.config.js",
+      "purpose": "Tailwind CSS configuration file",
+      "isEmpty": false
+    },
+    {
+      "path": "src/app/globals.css",
+      "purpose": "Global CSS styles including Tailwind directives",
+      "isEmpty": false
+    },
+    {
+      "path": "src/app/layout.tsx",
+      "purpose": "Root Next.js app layout component with metadata and providers",
+      "isEmpty": false
+    },
+    {
+      "path": "src/app/page.tsx",
+      "purpose": "Root landing page component at /",
+      "isEmpty": true
+    },
+    {
+      "path": ".env.example",
+      "purpose": "Example environment variables file with NEXT_PUBLIC_APP_URL placeholder",
+      "isEmpty": false
+    },
+    {
+      "path": "pr-docs/.gitkeep",
+      "purpose": "Placeholder to track pr-docs directory in git",
+      "isEmpty": false
+    },
+    {
+      "path": "memory/.gitkeep",
+      "purpose": "Placeholder to track memory directory in git",
+      "isEmpty": false
+    },
+    {
+      "path": "memory/project/.gitkeep",
+      "purpose": "Placeholder to track memory/project directory in git",
+      "isEmpty": false
+    },
+    {
+      "path": "memory/task/.gitkeep",
+      "purpose": "Placeholder to track memory/task directory in git",
+      "isEmpty": false
+    },
+    {
+      "path": "memory/agent/.gitkeep",
+      "purpose": "Placeholder to track memory/agent directory in git",
+      "isEmpty": false
+    },
+    {
+      "path": "memory/context/.gitkeep",
+      "purpose": "Placeholder to track memory/context directory in git",
+      "isEmpty": false
+    }
+  ],
   "libraryExports": [],
-  "existingRoutes": [],
+  "existingRoutes": [
+    {
+      "type": "page",
+      "path": "/",
+      "file": "src/app/page.tsx",
+      "httpMethods": null,
+      "isEmpty": true
+    }
+  ],
   "databaseState": {
     "migrationsExist": false,
     "tables": []
   },
-  "intentionallyEmpty": []
+  "intentionallyEmpty": [
+    {
+      "file": "src/app/page.tsx",
+      "intendedPurpose": "Root landing page waiting for application content and UI implementation"
+    }
+  ]
 }
