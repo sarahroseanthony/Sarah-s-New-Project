@@ -1,0 +1,103 @@
+schema_version: refined-task-plan.v1
+produced_by: "CLI Agent — Task 1 (CLI Agent: refine task plan)"
+date: "2026-07-24"
+freeze_ready: false
+freeze_ready_rationale: "Pending human review. Planning outputs are draft-only until a user/admin reviews and freezes them."
+
+tasks:
+
+  - id: 1
+    title: "CLI Agent: refine task plan"
+    priority: high
+    status: review
+    assigned: you
+    tags:
+      - workspace-agent
+      - tasks
+      - task-generation
+      - task-aware-memory
+    context_tags:
+      - planning
+      - task-audit
+      - task-metadata
+      - workspace-agent
+    scope_files:
+      # write targets
+      - docs/plans/task-plan-audit.md
+      - docs/plans/refined-task-plan.yaml
+      # read-only context
+      - project/memory/project/project.json
+      - project/memory/project/scaffold.json
+      - project/memory/system/memory-index.md
+      - project/memory/task/**
+      - project/memory/agent/**
+      - project/memory/context/**
+      - specs/**
+      - docs/**
+    dependencies: []
+    acceptance_criteria:
+      - "All tasks in the task breakdown have explicit context_tags, scope_files, dependencies, and structured acceptance_criteria."
+      - "The task plan contains no duplicated or ambiguous work units."
+      - "Planning changes are minimal and preserve existing task structure unless regeneration is clearly justified."
+      - "Any task-aware memory risks are called out explicitly with severity and mitigation."
+      - "A machine-readable refined-task-plan.yaml artifact is written to docs/plans/."
+      - "A human-readable task-plan-audit.md artifact is written to docs/plans/."
+    dispatchable: true
+    dispatchable_rationale: "No prerequisites. Runs on clean state by inspecting available memory and scaffold."
+    memory_compatible: true
+    memory_compatible_rationale: "context_tags and scope_files are now set; task-aware memory lookup can match on planning, task-audit, task-metadata, workspace-agent."
+    notes: >
+      This task is in 'review' status. Outputs (task-plan-audit.md, refined-task-plan.yaml) are
+      in docs/plans/ per the execution policy allowed paths. After human review and freeze,
+      Task 2 should be unblocked.
+
+  - id: 2
+    title: "CLI Agent: plan execution waves"
+    priority: high
+    status: blocked
+    assigned: you
+    tags:
+      - workspace-agent
+      - waves
+      - planning
+      - phase-boundaries
+      - ticket-authoring
+    context_tags:
+      - planning
+      - wave-planning
+      - phase-boundaries
+      - ticket-authoring
+      - workspace-agent
+    scope_files:
+      # write targets (from planning_control.allowed_write_roots)
+      - docs/plans/wave-boundaries.yaml
+      - docs/plans/wave-engineering-plan.md
+      - docs/plans/wave-reviewer-report.md
+      # read-only context (from planning_control.read_context_roots)
+      - docs/plans/task-plan-audit.md
+      - docs/plans/refined-task-plan.yaml
+      - specs/**
+      - docs/bundles/Ticket-Authoring-Protocol.md
+      - docs/bundles/Bundle-Authoring-Protocol*.md
+    dependencies:
+      - 1
+    acceptance_criteria:
+      - "wave-boundaries.yaml is written to docs/plans/ with schema version pre-phase6-planning-artifact.v1."
+      - "wave-engineering-plan.md is written to docs/plans/ covering near-term waves (1–3) with entry/exit gates and planning assumptions."
+      - "wave-reviewer-report.md is written to docs/plans/ recording reviewer objections and structural patches."
+      - "Later waves are marked plan_later with explicit replan triggers."
+      - "No detailed tickets are authored for plan_later waves."
+      - "The missing product spec is surfaced as a structural gate on feature-wave planning."
+      - "Writer/reviewer iteration loop completes within 3 rounds or stops with documented unresolved blockers."
+      - "Planning outputs remain draft-only; no bundles, specs, or runtime assets are mutated."
+    dispatchable: false
+    dispatchable_rationale: "Blocked. Depends on Task 1 reaching 'done' status. Task 2 must not be dispatched while Task 1 is in 'review'."
+    memory_compatible: true
+    memory_compatible_rationale: "context_tags and scope_files are now set; task-aware memory lookup can match on planning, wave-planning, phase-boundaries, ticket-authoring, workspace-agent. However, project/memory/task/ is currently empty — wave planner will start cold until Task 1 outputs are indexed into task memory."
+    notes: >
+      This task is currently blocked on Task 1. The planning_control and planning_runtime YAML
+      blocks embedded in the original task description remain authoritative and are preserved
+      unchanged. Key constraint: no product spec exists — wave planning is limited to
+      infrastructure/foundation waves until the project owner supplies a product definition.
+      Task-aware memory risk: project/memory/task/ is empty; consider indexing Task 1 outputs
+      before dispatching Task 2.
